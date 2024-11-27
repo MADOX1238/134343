@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ar"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>نظام الاختيارات</title> 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-image: url('https://gifdb.com/images/high/incredible-sound-wave-art-hxgh3rtf5v8vvh5i.gif');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+    .options {
+      display: none;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+      border: none;
+      text-shadow: 1px 1px 2px black;
+    }
+    #main-button {
+      background-image: url('https://i.pinimg.com/originals/97/6d/35/976d356664adb4923e7c330ef2badf38.gif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      font-size: 18px;
+      padding: 15px 30px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      border: 2px solid transparent;
+      animation: pulse-border 3s infinite ease-in-out;
+    }
+    @keyframes pulse-border {
+      0% {
+        border-color: #ff5733;
+        box-shadow: 0 0 15px #ff5733;
+      }
+      25% {
+        border-color: #ffcc00;
+        box-shadow: 0 0 15px #ffcc00;
+      }
+      50% {
+        border-color: #00bfff;
+        box-shadow: 0 0 15px #00bfff;
+      }
+      75% {
+        border-color: #ff5733;
+        box-shadow: 0 0 15px #ff5733;
+      }
+      100% {
+        border-color: #ffcc00;
+        box-shadow: 0 0 15px #ffcc00;
+      }
+    }
+    #public-chat-btn {
+      background-image: url('https://www.medicoverhospitals.in/images/livechat.gif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      animation: public-chat-border-animation 3s infinite ease-in-out;
+      font-size: 16px;
+      padding: 15px 30px;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      text-shadow: 1px 1px 2px black;
+      cursor: pointer;
+    }
+    @keyframes public-chat-border-animation {
+      0% {
+        border-color: #ff5733;
+        box-shadow: 0 0 15px #ff5733;
+      }
+      25% {
+        border-color: #ffcc00;
+        box-shadow: 0 0 15px #ffcc00;
+      }
+      50% {
+        border-color: #00bfff;
+        box-shadow: 0 0 15px #00bfff;
+      }
+      75% {
+        border-color: #ff5733;
+        box-shadow: 0 0 15px #ff5733;
+      }
+      100% {
+        border-color: #ffcc00;
+        box-shadow: 0 0 15px #ffcc00;
+      }
+    }
+    #options button:first-child {
+      background-image: url('https://i.pinimg.com/originals/32/0a/cd/320acd9d2dcdbc3cd246dac4ed238236.gif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      animation: developer-border-animation 3s infinite ease-in-out;
+      font-size: 16px;
+      padding: 10px 20px;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      text-shadow: 1px 1px 2px black;
+    }
+    @keyframes developer-border-animation {
+      0% {
+        border-color: #32a852;
+        box-shadow: 0 0 15px #32a852;
+      }
+      50% {
+        border-color: #a83299;
+        box-shadow: 0 0 15px #a83299;
+      }
+      100% {
+        border-color: #325da8;
+        box-shadow: 0 0 15px #325da8;
+      }
+    }
+    #private-room-btn {
+      background-image: url('https://meissa.space/wp-content/uploads/black-hole.gif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      font-size: 16px;
+      padding: 15px 30px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      animation: private-room-border 3s infinite ease-in-out;
+      text-shadow: 1px 1px 2px black;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    @keyframes private-room-border {
+      0% {
+        border-color: #ff0000;
+        box-shadow: 0 0 15px #ff0000;
+      }
+      50% {
+        border-color: #00ff00;
+        box-shadow: 0 0 15px #00ff00;
+      }
+      100% {
+        border-color: #0000ff;
+        box-shadow: 0 0 15px #0000ff;
+      }
+    }
+    .name-input {
+      display: none;
+      margin-top: 20px;
+    }
+    h1 {
+      font-size: 50px;
+      color: #fff;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .chat-logo {
+      display: inline-block;
+    }
+    .chat-logo .chat {
+      color: yellow;
+      font-weight: bold;
+    }
+    .chat-logo .sphere {
+      color: #00bfff;
+      font-weight: bold;
+    }
+    #coins {
+      font-size: 24px;
+      color: #ffcc00;
+      margin-top: 20px;
+    }
+    #timer {
+      font-size: 18px;
+      color: white;
+      margin-top: 10px;
+    }
+  </style> 
+</head> 
+<body> 
+  <h1> <span class="chat-logo"> <span class="chat">Chat</span> <span class="sphere">Sphere</span> </span> </h1> 
+  <button id="main-button">اضغط للاختيار</button> 
+  <div class="options" id="options"> 
+    <button onclick="window.location.href='developer.html'">خاص بالمطورين</button> 
+    <button id="private-room-btn">إنشاء غرفة خاصة</button> 
+    <button id="public-chat-btn">الدردشة العلنية</button> 
+  </div> 
+  <div class="name-input" id="name-input"> 
+    <input type="text" id="username" placeholder="أدخل اسمك"> 
+    <button id="enter-chat-btn">دخول</button> 
+  </div> 
+  <div id="coins">
+    🪙 <span id="coin-count">0</span> 
+  </div> 
+  <div id="timer">
+    الوقت المتبقي: <span id="minute-count">2</span>:<span id="second-count">00</span> 
+  </div> 
+  <script>
+    const mainButton = document.getElementById('main-button');
+    const options = document.getElementById('options');
+    const nameInput = document.getElementById('name-input');
+    const usernameInput = document.getElementById('username');
+    const enterChatBtn = document.getElementById('enter-chat-btn');
+    const publicChatBtn = document.getElementById('public-chat-btn');
+    const privateRoomBtn = document.getElementById('private-room-btn');
+    const coinsDisplay = document.getElementById('coin-count');
+    const timerDisplay = document.getElementById('timer');
+    let timer;
+    let coins = 0;
+    let minutes = 2;
+    let seconds = 0;
+    
+    mainButton.addEventListener('click', () => {
+      if (options.style.display === 'none' || options.style.display === '') {
+        options.style.display = 'block'; 
+      } else {
+        options.style.display = 'none';
+      }
+      timer = setInterval(updateTimer, 1000);
+    });
+
+    enterChatBtn.addEventListener('click', () => {
+      if (usernameInput.value) {
+        localStorage.setItem('username', usernameInput.value);
+        nameInput.style.display = 'none';
+        coinsDisplay.style.display = 'block';
+      }
+    });
+
+    function updateTimer() {
+      if (seconds === 0) {
+        if (minutes === 0) {
+          clearInterval(timer);
+        } else {
+          minutes--;
+          seconds = 59;
+        }
+      } else {
+        seconds--;
+      }
+
+      document.getElementById('minute-count').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('second-count').textContent = String(seconds).padStart(2, '0');
+    }
+
+    publicChatBtn.addEventListener('click', () => {
+      alert('الدردشة العلنية تم تفعيلها!');
+    });
+
+    privateRoomBtn.addEventListener('click', () => {
+      alert('غرفة خاصة تم إنشاؤها!');
+    });
+  </script> 
+ 
+</body></html>
